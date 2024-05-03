@@ -30,4 +30,5 @@ jobs:
           role-session-name: deploy-blog
           role-duration-seconds: 900
       - run: |
+          aws sts get-caller-identity
           aws s3 cp --acl public-read _site/. s3://blog.arjunbahuguna.com/ --recursive --cache-control 0
